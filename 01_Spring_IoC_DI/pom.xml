@@ -25,9 +25,9 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
-	<!--  properties 
+	<!--  
 		2. properties
-			 해당 xml 파일 내에서 사용하고자 하는 변수에 담아두는 태그
+			 해당 xml 파일 내에서 사용하고자 하는 버전들을 변수에 담아두는 태그
 	
 	-->
 	
@@ -145,6 +145,7 @@
     	<version>4.0.1</version>
     	<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
     	<groupId>javax.servlet.jsp</groupId>
     	<artifactId>javax.servlet.jsp-api</artifactId>
