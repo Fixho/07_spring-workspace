@@ -18,7 +18,7 @@ public class BookController {
 	//@RequestMapping(value="/book/list.do", method=RequestMethod.GET)
 	//@RequestMapping(value="book/list.do", method=RequestMethod.GET) // / 생략가능
 	//@RequestMapping(value="book/list.do")							  // method 생략시 둘다 허용
-																	  // url mapping값만 작성시 value속성
+	//@RequestMapping("book/list.do")								  // url mapping값만 작성시 value속성
 	
 	@RequestMapping("/list.do")
 	public String bookList() {										 
