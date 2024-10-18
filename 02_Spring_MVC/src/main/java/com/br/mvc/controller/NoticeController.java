@@ -122,6 +122,7 @@ public class NoticeController {
 	
 	@GetMapping("/update.do")
 	public String updateNotice(int no, Model model) {
+		
 		int result = noticeService.updateNotice(no);
 		
 		if (result > 0) {

@@ -36,9 +36,12 @@ public class NoticeDao {
 				
 				n.setTitle(n.getTitle());
 				n.setContent(n.getTitle());
+				return 1;
 			}
 		}
-		return 1;
+		
+		
+		return 0;
 	}
 	
 	
