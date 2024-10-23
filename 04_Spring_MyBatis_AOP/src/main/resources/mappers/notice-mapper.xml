@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			insert
 				into notice
 				(
-					no"C:/workspaces/06_mybatis-workspace/mybatisProject/resources/mappers/notice-mapper.xml"
+					no
 			  , title
 			  , content
 				)

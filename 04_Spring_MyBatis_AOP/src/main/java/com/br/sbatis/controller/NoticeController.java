@@ -75,17 +75,43 @@ public class NoticeController {
 		// delete from notice where no in (xx, xx, xx) 쿼리가 실행될수 있도록
 		// service 메소드 수정, dao 메소드 만들기, mapper에 쿼리작성
 		
-		// 성공했을경우 -> 목록페이지
-		// 실패했을경우 -> 메인페이지
 		int result = noticeService.deleteNotice(deleteNo);
+		// 성공했을경우 -> 목록페이지
 		if(result == deleteNo.length) {
 			return "redirect:/notice/list.do";
 		}else {
+			// 실패했을경우 -> 메인페이지
 			return "redirect:/";
 		}
 		
 		
 	}
+	
+	@GetMapping("/txtest.do")
+	public String transactionTest() {
+		
+		noticeService.transactionTest();
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
