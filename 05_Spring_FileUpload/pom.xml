@@ -8,7 +8,7 @@
 	<name>05_Spring_FileUpload</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-
+	
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.3.27</org.springframework-version>
@@ -37,7 +37,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
-		<!-- *AspectJ (AOP를 위한 라이브러리) -->
+		<!-- * AspectJ (AOP를 위한 라이브러리) -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -49,32 +49,30 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${org.aspectj-version}</version>
 			<scope>runtime</scope>
-		</dependency>
-			
+		</dependency>	
+		
 		<!-- * Logging -->
-		<!-- 1) logback -->
+		<!--   1) logback -->
 		<dependency>
-    		<groupId>ch.qos.logback</groupId>
-    		<artifactId>logback-classic</artifactId>
-    		<version>1.4.14</version>
-    		<!--  <scope>test</scope> 지워야됨 -->
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.4.14</version>
+		    <!-- <scope>test</scope> 지워야됨 -->
 		</dependency>
-		
-		<!-- 2) slf4j -->
+		<!--   2) slf4j -->
 		<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${org.slf4j-version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
 		</dependency>
-		
-		<!-- 3) log4jdbc  (https://log4jdbc.brunorozendo.com/) -->
+		<!--   3) log4jdbc (https://log4jdbc.brunorozendo.com/) -->
 		<dependency>
-    		<groupId>org.bgee.log4jdbc-log4j2</groupId>
-    		<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-    		<version>1.16</version>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
 		</dependency>
-		
-
+				
+ 		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -111,94 +109,103 @@
 		
 		<!-- * Lombok -->
 		<dependency>
-    	<groupId>org.projectlombok</groupId>
-    	<artifactId>lombok</artifactId>
-    	<version>1.18.12</version>
-    	<scope>provided</scope>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.12</version>
+		    <scope>provided</scope>
 		</dependency>
 		
 		<!-- * Jackson -->
 		<dependency>
-    		<groupId>com.fasterxml.jackson.core</groupId>
-    		<artifactId>jackson-databind</artifactId>
-    		<version>2.14.2</version>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.2</version>
 		</dependency>
 		
-		<!--* DB관련 라이브러리 -->
-		<!--  1) ojdbc8 -->
+		<!-- * DB관련 라이브러리 -->
+		<!--   1) ojdbc8 -->
 		<dependency>
-    		<groupId>com.oracle.database.jdbc</groupId>
-    		<artifactId>ojdbc8</artifactId>
-    		<version>23.2.0.0</version>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>23.2.0.0</version>
 		</dependency>
 		<!--   2) spring-jdbc -->
 		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-jdbc</artifactId>
-    		<version>${org.springframework-version}</version>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${org.springframework-version}</version>
 		</dependency>
 		<!--   3) mybatis -->
 		<dependency>
-    		<groupId>org.mybatis</groupId>
-    		<artifactId>mybatis</artifactId>
-   		  <version>3.5.14</version>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.14</version>
 		</dependency>
-		
 		<!--   4) mybatis-spring -->
 		<dependency>
-    		<groupId>org.mybatis</groupId>
-    		<artifactId>mybatis-spring</artifactId>
-    		<version>2.0.6</version>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.6</version>
 		</dependency>
-		<!--   5) commons-DBCP  -->
+		<!--   5) commons-dbcp -->
 		<dependency>
-    		<groupId>org.apache.commons</groupId>
-    		<artifactId>commons-dbcp2</artifactId>
-    		<version>2.9.0</version>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.9.0</version>
 		</dependency>
-		
-		
-		
-		
-		
+						
+		<!-- * 파일 업로드 관련 라이브러리 -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.11.0</version>
+		</dependency>
+				
+				
+				    
 	</dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <additionalProjectnatures>
-                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-                    </additionalProjectnatures>
-                    <additionalBuildcommands>
-                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-                    </additionalBuildcommands>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                </configuration>
-            </plugin>
-    
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${java-version}</source>
-                    <target>${java-version}</target>
-                    <compilerArgument>-Xlint:all</compilerArgument>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <configuration>
-                    <mainClass>org.test.int1.Main</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	
+  <build>
+      <plugins>
+          <plugin>
+              <artifactId>maven-eclipse-plugin</artifactId>
+              <version>2.9</version>
+              <configuration>
+                  <additionalProjectnatures>
+                      <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                  </additionalProjectnatures>
+                  <additionalBuildcommands>
+                      <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                  </additionalBuildcommands>
+                  <downloadSources>true</downloadSources>
+                  <downloadJavadocs>true</downloadJavadocs>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+                  <source>${java-version}</source>
+                  <target>${java-version}</target>
+                  <compilerArgument>-Xlint:all</compilerArgument>
+                  <showWarnings>true</showWarnings>
+                  <showDeprecation>true</showDeprecation>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>1.2.1</version>
+              <configuration>
+                  <mainClass>org.test.int1.Main</mainClass>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
 </project>
