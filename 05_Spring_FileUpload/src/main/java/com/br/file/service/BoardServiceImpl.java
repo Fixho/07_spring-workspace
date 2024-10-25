@@ -47,4 +47,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.selectAttachList();
 	}
 
+	@Override
+	public BoardDto selectBoard(int boardNo) {
+		
+		return boardDao.selectBoard(boardNo);
+	}
+
 }
