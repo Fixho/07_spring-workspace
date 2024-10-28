@@ -26,7 +26,7 @@ public class MemberDto {
 	private String phone;
 	private String address;
 	private String profileURL;
-	private Date singupDt;
+	private Date signupDt;
 	private Date modifyDt;
 	private String status;
 }
