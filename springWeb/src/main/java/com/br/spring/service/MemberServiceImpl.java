@@ -38,4 +38,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.deleteMember(userId);
 	}
 	
+	@Override
+	public int updateProfileImg(MemberDto m) {
+		return memberDao.updateProfileImg(m);
+	}
+	
 }
