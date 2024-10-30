@@ -14,6 +14,23 @@
 header{height: 50px}
 header a{color:black;}
 header .profile-img{width:30px;}
+.page-link {
+            color: #6c757d; 
+            background-color: #fff;
+            border: 1px solid #ccc; 
+}
+.page-item.active .page-link {
+            z-index: 1;
+            color: #555;
+            font-weight:bold;
+            background-color: #f1f1f1;
+            border-color: #ccc;
+}
+.page-link:focus, .page-link:hover {
+            color: #000;
+            background-color: #fafafa; 
+            border-color: #ccc;
+}
 </style>
 
 <script>
@@ -27,7 +44,7 @@ header .profile-img{width:30px;}
 
 <header class="row m-3">
 	<div class="col-3 d-flex justify-content-center align-items-center">
-	    <a href="${contextPath }/main.do"><img src="${ contextPath }/resources/images/goodee_logo.png" width="100px"></a>
+	    <a href="${ contextPath }"><img src="${ contextPath }/resources/images/goodee_logo.png" width="100px"></a>
 	</div>
 	<div class="col-5"></div>
 	<div class="col-4 d-flex justify-content-center align-items-center">
@@ -53,7 +70,7 @@ header .profile-img{width:30px;}
 <nav class="navbar m-3 navbar-expand-sm bg-dark navbar-dark d-flex justify-content-center">
 <ul class="navbar-nav">
     <li class="nav-item">
-    <a class="nav-link" href="${ contetxPath }">Home</a>
+    <a class="nav-link" href="${ contextPath }">Home</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#">공지사항</a>

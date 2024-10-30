@@ -1,24 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <!-- Bootstrap 사용을 위한 CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- ------------------------- -->
-    <title>Document</title>
-    <style>
-        #reply_area tbody>tr>th:nth-child(1){width:120px}
-    </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #reply_area tbody>tr>th:nth-child(1){width:120px}
+</style>
 </head>
 <body>
 
-    <div class="container p-3">
+<div class="container p-3">
 
         <!-- Header, Nav start -->
-        <jsp:include page=""/>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <!-- Header, Nav end -->
     
         <!-- Section start -->
@@ -28,23 +26,26 @@
             <h2 class="m-4">게시글 상세</h2>
             <br>
 
-            <a class="btn btn-secondary" style="float:right" href="">목록으로</a>
+            <a class="btn btn-secondary" style="float:right" href="${ contextPath }/board/list.do">목록으로</a>
             <br><br>
             <table align="center" class="table">
                 <tr>
                     <th width="120">제목</th>
-                    <td colspan="3">게시판 제목자리여라 ..</td>
+                    <td colspan="3">${ b.boardTitle }</td>
                 </tr>
                 <tr>
                     <th>작성자</th>
-                    <td width="400">user01</td>
+                    <td width="400">${ b.boardWriter }</td>
                     <th width="120">작성일</th>
-                    <td>2020-03-20</td>
+                    <td>${ b.registDt }</td>
                 </tr>
                 <tr>
                     <th>첨부파일</th>
                     <td colspan="3">
-                        <a href="" download="">파일명.jpg</a>
+                    	<c:forEach var="at" items="${ b.attachList }">
+                        <a href="${ contextPath }${ at.filePath }/${ at.filesystemName }" download="${ at.originalName }">${ at.originalName }</a> 
+                        <br>
+                      </c:forEach>  
                     </td>
                 </tr>
                 <tr>
@@ -52,17 +53,21 @@
                     <td colspan="3"></td>
                 </tr>
                 <tr>
-                    <td colspan="4"><p style="height:150px">게시판 내용자리입니다용</p></td>
+                    <td colspan="4">
+                    <p style="height:150px">${ b.boardContent }</p>
+                    </td>
                 </tr>
             </table>
             <br>
 
             <!-- 수정하기, 삭제하기 버튼은 이글이 본인글일 경우만 보여져야됨 -->
+             <c:if test="${ not empty loginUser }">
             <div align="center">
                 <a class="btn btn-primary" href="">수정하기</a>
                 <a class="btn btn-danger" href="">삭제하기</a>
             </div>
             <br><br>
+            </c:if>
 
             <table id="reply_area" class="table" align="center">
                 <thead>
@@ -101,12 +106,11 @@
         <!-- Section end -->
     
         <!-- Footer start -->
-        <jsp:include page=""/>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
         <!-- Footer end -->
     
     </div>
 
 
-    
 </body>
 </html>
