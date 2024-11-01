@@ -22,5 +22,6 @@ public class PageInfoDto{
 	private int maxPage;
 	private int startPage;
 	private int endPage;
+	private int NoticeLimit;
 	
 }

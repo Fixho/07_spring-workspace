@@ -218,7 +218,44 @@ public class MemberController {
 		
 	}
 	
+	@PostMapping("updatePwd.do")
+	public String updatePwd(String userPwd
+						  , String updatePwd
+						  , RedirectAttributes rdAttributes
+						  , HttpSession session) {
+		
+		MemberDto loginUser = (MemberDto)session.getAttribute("loginUser");
+		
+		if(bcryptPwdEncoder.matches(userPwd, loginUser.getUserPwd())) { //비밀번호가 일치하면
+			
+			loginUser.setUserPwd( bcryptPwdEncoder.encode(updatePwd));
+			
+			//비밀번호 변경용 서비스 실행
+			int result = memberService.updatePwd(loginUser);
+			//session에 로그인한 회원 객체 갱신
+			session.setAttribute("loginUser", memberService.selectMember(loginUser));
+			
+			if(result > 0) {
+				//alert로 성공메시지 출력
+				rdAttributes.addFlashAttribute("alertMsg", "성공적으로 비밀변호가 변경되었습니다.");
+			}else {
+				rdAttributes.addFlashAttribute("alertMsg", "변경 실패");
+			}
+			
+		}else {
+			// alert로 비번이 틀렸다는 메세지 출력
+			rdAttributes.addFlashAttribute("alertMsg", "비빌번호 변경에 실패했습니다.");
+			
+		}
 	
-	
-	
+		return "redirect:/member/myinfo.do";
+	}
+
+
+
+
+
+
+
 }
+	
