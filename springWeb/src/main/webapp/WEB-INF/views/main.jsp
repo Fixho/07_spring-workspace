@@ -21,8 +21,24 @@
 		<section class="row m-3" style="min-height: 500px">
 
 			<div class="container border p-5 m-4 rounded">
-				<h2 class="m-4">해당 페이지의 내용이 보여져야되는 자리</h2>
+				<h2 class="m-4">WebSocket을 이용하여 실시간으로 통신하기</h2>
 
+				<p>
+					실시간으로 알림을 발생시킨다거나 채팅을 할 때 주로 websocket 사용 <br><br>
+					
+					* HTTP통신 (기본통신방식) : 비연결 통신 <br>
+					- 한번 요청을 보내고 처리되면 연결 끊김 == 지속적으로 데이터를 주고받기 x <br>
+					- 지속적으로 데이터를 주고받고자 할 경우 setInterval 과 ajax를 같이 사용해서
+						주기적으로 요청을 보내 응답을 받으면 됨 (plling) => 단, 네트워크 리소스를 많이 사용해서 비효율적
+						
+					* WebSocket통신 : 영구적 양방향 통신 <br>
+					- 실시간으로 연결되어있음 == 지속적으로 데이터를 주고받기 o <br><br>
+					
+					<c:if test="${ not empty loginUser }" >
+						<a class="btn btn-secondary" href="${contextPath}/chat/room.do">채팅방 입장</a>
+					</c:if>
+				</p>
+	
 
 			</div>
 
